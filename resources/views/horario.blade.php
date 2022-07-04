@@ -14,7 +14,55 @@
     </div>
     
 @endif
+
+
+
+
                 <div class="col-md-12">
+
+                    <table id="personalInfo" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
+                                <thead>
+                                <tr>
+                                    <th>DIA</th>
+                                    <th>PLANTEL</th>
+                                    <th>HORA INICIO</th>
+                                    <th>HORA FIN</th>
+                                    <th>BORRAR</th>
+                                    
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach($enUso as $uso)
+                                    <tr>
+                                        <td>{{$uso->dia}}</td>
+                                        <td>{{$uso->Plantel->plantel}}</td>
+                                        <td>{{$uso->hora_inicio}}</td>
+                                        <td>{{$uso->hora_fin}}</td>
+                                            <td>
+                                                <form method="POST" id="formEliminar" action="" aria-label="{{ __('Noticia') }}" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" id="asiganr" value="{{route('principal.destroy',$uso->id)}}" name="asiganr" class="btn btn-primary"
+                                                            onclick="  var r = confirm('Estas seguro que deseas eliminar este horario?');
+                                                        if (r == true) {
+                                                            $('#formEliminar').attr('action',this.value).submit();
+                                                        } else {
+                                                            return false;
+                                                        }">
+                                                        <i class="fas fa-check"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                          
+                                            
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+
+
+
+
                     
                     <div class="card" style="box-shadow: 0 5px 5px 0 rgba(0,0,0,0.5);">
                         <div class="card-header">

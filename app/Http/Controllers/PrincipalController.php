@@ -34,11 +34,13 @@ class PrincipalController extends Controller
             $docente = Docente::where('user_id',Auth::user()->id)->first();
 
             $planteles = Materia::where('carrera_id',$docente->areas[0]->id)->select('plantel_id')->distinct()->get();
+
+            $enUso = Disponibilidad::where('docente_id',$docente->id)->get();
         
 
           
 
-                return view('horario',compact('planteles'));
+                return view('horario',compact('planteles','enUso'));
         }
     }
 
@@ -211,7 +213,7 @@ class PrincipalController extends Controller
             if ($request->horaInicioJ && $request->horaFinJ)
          {
             
-            $enUso = Disponibilidad::where('docente_id',$docente->id)->where('dia','J')->first();
+            $enUso = Disponibilidad::where('docente_id',$docente->id)->where('dia','J')->get();
               foreach($enUso as $enUso)
                 {
              if($enUso)
@@ -255,7 +257,7 @@ class PrincipalController extends Controller
          }
             if ($request->horaInicioV && $request->horaFinV)
          {
-            $enUso = Disponibilidad::where('docente_id',$docente->id)->where('dia','V')->first();
+            $enUso = Disponibilidad::where('docente_id',$docente->id)->where('dia','V')->get();
               foreach($enUso as $enUso)
                 {
              if($enUso)
