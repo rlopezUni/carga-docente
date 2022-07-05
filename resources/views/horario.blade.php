@@ -42,14 +42,14 @@
                                                 <form method="POST" id="formEliminar" action="" aria-label="{{ __('Noticia') }}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="button" id="asiganr" value="{{route('principal.destroy',$uso->id)}}" name="asiganr" class="btn btn-primary"
+                                                    <button type="button" id="asiganr" value="{{route('principal.destroy',$uso->id)}}" name="asiganr" class="btn btn-danger"
                                                             onclick="  var r = confirm('Estas seguro que deseas eliminar este horario?');
                                                         if (r == true) {
                                                             $('#formEliminar').attr('action',this.value).submit();
                                                         } else {
                                                             return false;
                                                         }">
-                                                        <i class="fas fa-check"></i>
+                                                        <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
                                             </td>

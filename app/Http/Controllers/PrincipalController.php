@@ -435,7 +435,8 @@ class PrincipalController extends Controller
      */
     public function destroy($id)
     {
-        //
+         Disponibilidad::findorfail($id)->delete();
+        return redirect()->route('principal.index')->with('info','Se Elimino correctamente');
     }
 
 
