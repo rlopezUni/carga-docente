@@ -18,6 +18,7 @@
                                     <th>ID MATERIA</th>
                                     <th>MODALIDAD</th>
                                     <th>PLANTEL</th>
+                                    <th>BORRAR</th>
                                   
                                     
                                 </tr>
@@ -29,7 +30,21 @@
                                         <td>{{$materia->id_pwc}}</td>
                                         <td>{{$materia->modalidad->modalidad}}</td>
                                         <td>{{$materia->Plantel->plantel}}</td>
-                                        
+                                        <td>
+                                                <form method="POST" id="formEliminar" action="" aria-label="{{ __('Noticia') }}" enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" id="asiganr" value="{{route('materias.destroy',$materia->id)}}" name="asiganr" class="btn btn-danger"
+                                                            onclick="  var r = confirm('Estas seguro que deseas eliminar este horario?');
+                                                        if (r == true) {
+                                                            $('#formEliminar').attr('action',this.value).submit();
+                                                        } else {
+                                                            return false;
+                                                        }">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
                                         
                                           
                                     </tr>
@@ -58,13 +73,13 @@
                                         
                                         
                                         <td>
-                                                <form method="POST" id="formEliminar" action="" aria-label="{{ __('Noticia') }}" enctype="multipart/form-data">
+                                                <form method="POST" id="formUpdate" action="" aria-label="{{ __('Noticia') }}" enctype="multipart/form-data">
                                                     @csrf
                                                     @method('PUT')
                                                     <button type="button" id="asiganr" value="{{route('principal.update',$materia->id)}}" name="asiganr" class="btn btn-primary"
                                                             onclick="  var r = confirm('Estas seguro que deseas esta materia?');
                                                         if (r == true) {
-                                                            $('#formEliminar').attr('action',this.value).submit();
+                                                            $('#formUpdate').attr('action',this.value).submit();
                                                         } else {
                                                             return false;
                                                         }">

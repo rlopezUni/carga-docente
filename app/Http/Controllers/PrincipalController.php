@@ -402,6 +402,7 @@ class PrincipalController extends Controller
     {
         $docente = Docente::where('user_id',Auth::user()->id)->first();
        $materia = Materia::findorfail($id);
+
        $horario = new Horario();
        $horario->docente_id = $docente->id;
        $horario->materia_id = $id;

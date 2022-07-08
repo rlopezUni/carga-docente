@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Materia;
 use App\Models\Plantel;
 use App\Models\Area;
+use App\Models\Docente;
+use App\Models\Horario;
 use App\Models\Carrera;
 use Illuminate\Support\Facades\Auth;
 class MateriasController extends Controller
@@ -136,6 +138,12 @@ class MateriasController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $materia =Materia::findorfail($id);
+        $docente = Docente::where('user_id',Auth::user()->id)->first();
+        $materiasDisponibles = Materia::where('plantel_id',$materia->plantel_id)->where('carrera_id',$docente->areas[0]->id)->get();
+        Horario::where('materia_id',$materia->id)->where('docente_id',$docente->id)->delete();
+        
+        $materia->Docentes()->detach($docente->id);
+        return view('principal',compact('docente','materiasDisponibles'));
     }
 }
