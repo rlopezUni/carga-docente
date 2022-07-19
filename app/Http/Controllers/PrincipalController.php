@@ -103,7 +103,7 @@ class PrincipalController extends Controller
 
             $numPlanteles = count($numPlanteles);
 
-                if ($numPlanteles >= 3) {
+                if ($numPlanteles >= 4) {
                         return redirect('/')->with('info','Solo puedes tener 3 planteles');
                 }
 
@@ -151,7 +151,7 @@ class PrincipalController extends Controller
 
             $numPlanteles = count($numPlanteles);
 
-                if ($numPlanteles >= 3) {
+                if ($numPlanteles >= 4) {
                         return redirect('/')->with('info','Solo puedes tener 3 planteles');
                 }
                 $horario = new Disponibilidad();
@@ -195,7 +195,7 @@ class PrincipalController extends Controller
 
             $numPlanteles = count($numPlanteles);
 
-                if ($numPlanteles >= 3) {
+                if ($numPlanteles >= 4) {
                         return redirect('/')->with('info','Solo puedes tener 3 planteles');
                 }
                 $horario = new Disponibilidad();
@@ -240,7 +240,7 @@ class PrincipalController extends Controller
 
             $numPlanteles = count($numPlanteles);
 
-                if ($numPlanteles >= 3) {
+                if ($numPlanteles >= 4) {
                         return redirect('/')->with('info','Solo puedes tener 3 planteles');
                 }
                 $horario = new Disponibilidad();
@@ -285,7 +285,7 @@ class PrincipalController extends Controller
 
             $numPlanteles = count($numPlanteles);
 
-                if ($numPlanteles >= 3) {
+                if ($numPlanteles >= 4) {
                         return redirect('/')->with('info','Solo puedes tener 3 planteles');
                 }
                 $horario = new Disponibilidad();
@@ -329,7 +329,7 @@ class PrincipalController extends Controller
 
             $numPlanteles = count($numPlanteles);
 
-                if ($numPlanteles >= 3) {
+                if ($numPlanteles >= 4) {
                         return redirect('/')->with('info','Solo puedes tener 3 planteles');
                 }
                 $horario = new Disponibilidad();
