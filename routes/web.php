@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', 'App\Http\Controllers\PrincipalController@index')->name('dashboard');
 
 
@@ -25,9 +24,11 @@ Route::resources([
     'docentes' => 'App\Http\Controllers\DocentesController',
     'materias' => 'App\Http\Controllers\MateriasController',
     'principal' => 'App\Http\Controllers\PrincipalController',
+    'reportes' => 'App\Http\Controllers\ReportesController',
 
 ]);
     Route::get('/','App\Http\Controllers\PrincipalController@index')->name('/');
+
     Route::get('/consulta/materias/{areas}','App\Http\Controllers\MateriasController@consulta_areas')->name('consulta.areas');
 
 });

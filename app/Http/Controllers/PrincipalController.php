@@ -348,14 +348,17 @@ class PrincipalController extends Controller
             {
                  return redirect('/')->with('info','selecciona al menos un dia');
             }
+            $areas = [];
+                foreach($docente->areas as $area)
 
+                {
+                    array_push($areas, $area->id);
+                }
             
 
-             $materiasDisponibles = Materia::where('plantel_id',$horario->plantel_id)->where('carrera_id',$docente->areas[0]->id)->get();
+             $materiasDisponibles = Materia::where('plantel_id',$horario->plantel_id)->whereIn('carrera_id',$areas)->get();
 
-
-             
-             
+                
 
             return view('principal',compact('docente','materiasDisponibles'));
 
@@ -414,7 +417,15 @@ class PrincipalController extends Controller
        $horario->save();
        $materia->Docentes()->attach($docente->id);
 
-       $materiasDisponibles = Materia::where('plantel_id',$horario->plantel_id)->where('carrera_id',$docente->areas[0]->id)->get();
+     $areas = [];
+                foreach($docente->areas as $area)
+
+                {
+                    array_push($areas, $area->id);
+                }
+            
+
+             $materiasDisponibles = Materia::where('plantel_id',$horario->plantel_id)->whereIn('carrera_id',$areas)->get();
 
 
              
