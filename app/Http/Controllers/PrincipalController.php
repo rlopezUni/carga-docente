@@ -32,8 +32,15 @@ class PrincipalController extends Controller
         {
 
             $docente = Docente::where('user_id',Auth::user()->id)->first();
+             $areas = [];
+                foreach($docente->areas as $area)
 
-            $planteles = Materia::where('carrera_id',$docente->areas[0]->id)->select('plantel_id')->distinct()->get();
+                {
+                    array_push($areas, $area->id);
+                }
+
+
+            $planteles = Materia::whereIn('carrera_id',$areas)->select('plantel_id')->distinct()->get();
 
             $enUso = Disponibilidad::where('docente_id',$docente->id)->get();
         
@@ -468,7 +475,13 @@ class PrincipalController extends Controller
              */
 
              
-             $materiasDisponibles = Materia::where('status',1)->where('carrera_id',$docente->areas[0]->id)->get();
+              $areas = [];
+                foreach($docente->areas as $area)
+
+                {
+                    array_push($areas, $area->id);
+                }
+             $materiasDisponibles = Materia::where('status',1)->whereIn('carrera_id',$areas)->get();
              
              
              
