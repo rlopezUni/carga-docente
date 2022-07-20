@@ -30,5 +30,5 @@ Route::resources([
     Route::get('/','App\Http\Controllers\PrincipalController@index')->name('/');
 
     Route::get('/consulta/materias/{areas}','App\Http\Controllers\MateriasController@consulta_areas')->name('consulta.areas');
-
+    Route::post('/comentario','App\Http\Controllers\PrincipalController@comentarios')->name('comentarios');
 });

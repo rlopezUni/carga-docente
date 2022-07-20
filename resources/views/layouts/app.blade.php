@@ -15,7 +15,7 @@
     <script src="{{asset('/js/popper/popper.min.js')}}" crossorigin="anonymous"></script>
     <!-- Bootstrap JS -->
     <script src="{{asset('/bootstrap4/dist/js/bootstrap.min.js')}}" crossorigin="anonymous"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Font Awesome JS -->
     <script defer src="{{asset('/fontawesome/js/all.js')}}" crossorigin="anonymous"></script>
 

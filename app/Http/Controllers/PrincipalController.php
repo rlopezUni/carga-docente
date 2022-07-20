@@ -10,6 +10,7 @@ use App\Models\Materia;
 use App\Models\Horario;
 use App\Models\Disponibilidad;
 use App\Models\Plantel;
+use App\Models\Comentarios;
 use Illuminate\Support\Facades\DB;
 
 class PrincipalController extends Controller
@@ -487,5 +488,18 @@ class PrincipalController extends Controller
              
 
             return view('principal',compact('docente','materiasDisponibles'));
+    }
+
+    public function comentarios(Request $request)
+    {
+
+        $docente = Docente::where('user_id',Auth::user()->id)->first();
+         $comentarios = new Comentarios();
+         $comentarios->docente_id = $docente->id;
+         $comentarios->comentarios = $request->comentario;
+         $comentarios->save();
+
+         return redirect('/')->with('info','Gracias por los comentarios');
+
     }
 }

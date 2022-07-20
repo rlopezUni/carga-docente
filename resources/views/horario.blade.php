@@ -92,6 +92,16 @@
                                             @endforeach
                                         </select>
                                     </div>
+                                    <div class="col-md-4">
+                                    <center>
+
+                                        <button type="button" id="sugerencia" class="btn btn-success">
+                                            <i class="fa fa-envelope-open"></i>&nbsp;&nbsp;{{ __('Comentarios') }}
+                                        </button>
+                                        
+                                    </center>
+                                </div>
+                            
 
                                        
                                     <div class="col-md-12">
