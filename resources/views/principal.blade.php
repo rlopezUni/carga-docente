@@ -14,7 +14,7 @@
              <table id="materiasAsignadas" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>MIS MATERERIAS ASIGNADAS</th>
+                                    <th>MIS MATERIAS ASIGNADAS</th>
                                     <th>ID MATERIA</th>
                                     <th>MODALIDAD</th>
                                     <th>PLANTEL</th>
@@ -54,7 +54,7 @@
                             <table id="materiasDisponibles" class="table table-striped table-bordered dt-responsive nowrap" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>MATERERIAS DISPONIBLES</th>
+                                    <th>MATERIAS DISPONIBLES</th>
                                     <th>ID MATERIA</th>
                                     <th>MODALIDAD</th>
                                     <th>PLANTEL</th>
